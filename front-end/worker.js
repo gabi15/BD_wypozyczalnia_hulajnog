@@ -222,8 +222,9 @@ async function delete_klient(event){
     try {
         const response = await fetch(url + '/delete_klient',
             {
-                method: 'delete',
+                method: 'post',
                 headers: {
+                    Accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({klient_id:id})
@@ -239,6 +240,7 @@ async function delete_klient(event){
         console.log(error);
     }
 }
+
 
 async function get_klienci(){
     tabela = document.querySelector("#dane_klientow")
