@@ -1,4 +1,5 @@
-url = 'http://localhost:3002'
+//let url = 'http://localhost:3002'
+let url ='https://wypozyczalnia-hulajnog.herokuapp.com'
 
 document.addEventListener('DOMContentLoaded', worker_info_handler);
 
@@ -209,6 +210,31 @@ async function delete_hulajnoga(event){
                 alert("hulajnoga zostala usunieta!");
             }
             document.getElementById("delete_hulajnoga").reset();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function delete_klient(event){
+    event.preventDefault();
+    const id = document.querySelector('#delete_klient_id').value;
+    console.log(id);
+    try {
+        const response = await fetch(url + '/delete_klient/'+id,
+            {
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                method: 'delete'
+            });
+            if(response.status === 409) {
+                alert("taki klient nie istnieje")
+            } 
+            else {
+                alert("klient zostal usuniety!");
+            }
+            document.getElementById("delete_klient").reset();
     } catch (error) {
         console.log(error);
     }

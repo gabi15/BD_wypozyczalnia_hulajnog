@@ -1,4 +1,5 @@
-url = 'http://localhost:3002';
+//url = 'http://localhost:3002';
+let url ='https://wypozyczalnia-hulajnog.herokuapp.com'
 
 
 async function registration_handler (event) {

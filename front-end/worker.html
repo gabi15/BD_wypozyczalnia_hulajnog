@@ -79,6 +79,11 @@
             <button id="add_klient_btn" class="btn btn-primary">Wyślij</button>
         </form>
     </div>
+    <form class="ramka" id="delete_klient" onsubmit="delete_klient(event)">
+        <h3>Usuń klienta</h3>
+        <input type="number" class="form-control" id="delete_klient_id" placeholder="id klienta" required="true">
+        <button type="submit"  class="btn btn-primary">Usuń</button>
+    </form>
     
 </body>
 </html>

@@ -206,7 +206,7 @@ const zakonczJazde = (request, response) => {
 
 const kosztJazdy= (request, response) => {
   id_klienta = parseInt(request.params.klient_id);
-  pool.query('SELECT * FROM sumujKoszty_rozładujHulajnoge($1)',[id_klienta], (error, results) => {
+  pool.query('SELECT * FROM sumujKoszty_rozladujHulajnoge($1)',[id_klienta], (error, results) => {
     if (error) {
       throw error;
     }
@@ -306,6 +306,25 @@ const deleteHulajnoga = (request, response) =>{
   })
 }
 
+const deleteKlient = (request, response) =>{
+  //const {klient_id} = request.body;
+  const klient_id = parseInt(request.params.klient_id);
+  console.log(klient_id);
+  pool.query('DELETE FROM klienci WHERE klient_id=$1;',[klient_id],(error, results)=>{
+    if(error){
+      console.log(error);
+    }
+    else if(results.rowCount===1){
+      response.status(201).json({status: 'success', message: 'Klient usuniety.'});
+
+    }
+    else{
+      response.status(409).json({status: 'failure', message: 'Klient nie istnieje.'});
+    }
+
+  })
+}
+
 const getKlienci = (request, response)=>{
   pool.query('SELECT klient_id, imie, nazwisko, email, dostepne_srodki from klienci ORDER BY nazwisko', (error, results) =>
   {
@@ -387,6 +406,7 @@ app.route('/worker_registration').post(addWorker);
 app.route('/add_hulajnoga').post(addHulajnoga)
 app.route('/add_serwis').post(addSerwis);
 app.route('/delete_hulajnoga').post(deleteHulajnoga)
+app.route('/delete_klient/:klient_id').delete(deleteKlient)
 app.route('/get_klienci').get(getKlienci)
 app.route('/update_haslo_worker').post(updateHasloWorker)
 app.route('/get_raport_hulajnogi').get(raportHulajnogi)
