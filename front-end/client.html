@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="client.css">
+    <title>Client</title>
+    <script src="client.js"></script>
+</head>
+<body>
+    <h1>Witaj użytkowniku!</h1>
+    <div class="dane_klienta">
+        <h2>Twoje dane:</h2>
+        <div id="dane_klienta"></div>
+        <button type="submit" class="btn btn-primary" onclick="log_out_handler(event)">Wyloguj</button>
+        <div class="doladowanie">
+            <form id="doladuj">
+                <h4>Doładuj swoje konto wybraną kwotą</h4>
+                <input type='number' class="form-control" id = "payment" step='0.01' value='0.00' placeholder='0.00'>
+                <button type="submit" class="btn btn-primary" onclick="user_payment(event)">Doładuj</button>
+            </form>
+        </div>
+    </div>
+    <form class="ramka" onsubmit="user_haslo(event)">
+        <h3>Zmiana hasła</h3>
+        <input type='password' class="form-control" id="stare_haslo", placeholder="wpisz swoje stare haslo" required="true">
+        <input type='password' class="form-control" id="nowe_haslo", placeholder="wpisz swoje nowe haslo" required="true">
+        <button type="submit" class="btn btn-primary">Zmień hasło</button>
+    </form>
+    <form id="lokalizacja" onsubmit="user_location(event)">
+        <div class="form-group form-inline">
+        <label for="x">Współrzędna x </label>
+        <input type="number" class="form-control" id="x" name="x" min="0" max="100" required="true">
+    </div>
+    <div class="form-group form-inline">
+        <label for="y">Współrzędna y</label>
+        <input type="number"class="form-control"  id="y" name="y" min="0" max="100" required="true">
+    </div>
+        <button type="submit"  class="btn btn-primary">Przeslij swoją lokalizaję</button>
+    </form>
+    <div id="hulajnogi_div">
+    <button type="submit"  class="btn btn-primary" onclick="get_hulajnogi()">Zobacz dostępne hulajnogi</button>
+    <br>
+    <div id="hulajnogi_tabela"></div>
+    <br>
+    <div id="rezerwacja"></div>
+    <br>
+    <div id="hulajnogi_rezerwacja"></div>
+    <button type="submit"  class="btn btn-primary" onclick="get_transakcje(event)">Zobacz historię transakcji</button>
+    <div id="transakcje_tabela"></div>
+
+    </div>
+</body>
+</html>

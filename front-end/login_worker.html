@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="login_worker.js"></script>
+    <title>Worker login</title>
+</head>
+<body>
+    <h1>Witaj w pracy!</h1>
+    <div class="center_form">
+        <h2>Zaloguj się!</h2>
+        <form onsubmit="login_handler(event)">
+            <label for="mail">Email:</label><br>
+            <input type="text" class="form-control" id="worker_email" name="mail"  placeholder="wpisz adres email" required="true"><br>
+            <label for="haslo">Hasło:</label><br>
+            <input type="password" class="form-control" id="worker_haslo" name="haslo"  placeholder="wpisz haslo" required="true"><br>
+            <button type="submit" class="btn btn-primary" >Zaloguj</button><br><br>
+        </form>
+        <a href="index.html">Logowanie dla użytkownika</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="worker.css">
+    <script src="worker.js"></script>
+    <title>Worker site</title>
+</head>
+<body>
+    <div class="add_margin">
+        <h1>Dzień dobry! Witaj w pracy :)</h1>
+        <div id="dane_wylogowanie">
+            <div id="dane_pracownika"></div>
+            <button type="submit" class="btn btn-primary" onclick="log_out_handler(event)">Wyloguj</button>
+        </div>
+        <form id="zmiana_hasla" class="zmiana_hasla" onsubmit="worker_haslo(event)">
+            <h3>Zmiana hasła</h3>
+            <input type='password' class="form-control" id="stare_haslo", placeholder="wpisz swoje stare haslo" required="true">
+            <input type='password' class="form-control" id="nowe_haslo", placeholder="wpisz swoje nowe haslo" required="true">
+            <button type="submit" class="btn btn-primary">Zmień hasło</button>
+        </form>
+        <button type="submit"  class="btn btn-primary" onclick="get_hulajnogi(event)">Wszystkie hulajnogi</button>
+        <br>
+        <div id="hulajnogi_tabela"></div>
+        <br>
+        <button type="submit"  class="btn btn-primary" onclick="get_hulajnogi_ladowanie(event)">Hulajnogi do ładowania</button>
+        <br>
+        <div id="hulajnogi_ladowanie_tabela"></div>
+        <br>
+        <button type="submit"  class="btn btn-primary" onclick="raport_hulajnogi(event)">Raport serwisu hulajnóg</button>
+        <div id="raport_hulajnogi"></div>
+        <br>
+        <button type="submit"  class="btn btn-primary" onclick="get_klienci(event)">Wszyscy klienci</button>
+        <div id="dane_klientow"></div>
+    </div>
+    <form class="ramka" onsubmit="add_serwis(event)" id="add_serwis"> 
+        <h3>Serwisuj hulajnogę</h3>
+        <label for="nazwa">Nazwa serwisu</label>
+        <input type=text class="form-control" id="nazwa" placeholder="wpisz nazwę serwisu" required="true">
+        <label for="koszt">Koszt serwisu </label>
+        <input type='number' class="form-control" id = "koszt" step='0.01' value='0.00' placeholder='0.00' required="true">
+        <label for="hulajnoga_id">id hulajnogi </label>
+        <input type='number' class="form-control" id = "hulajnoga_id" required="true">
+        <button type="submit"  class="btn btn-primary">Wyślij</button>
+    </form>
+    
+    <form id="lokalizacja" onsubmit="add_hulajnoga(event)">
+        <h3>Dodaj nową hulajnogę</h3>
+        <div class="form-group form-inline">
+            <label for="x">Współrzędna x </label>
+            <input type="number" class="form-control" id="x" name="x" min="0" max="100" required="true">
+        </div>
+        <div class="form-group form-inline">
+            <label for="y">Współrzędna y</label>
+            <input type="number"class="form-control"  id="y" name="y" min="0" max="100" required="true">
+        </div>
+        <button type="submit"  class="btn btn-primary">Dodaj!</button>
+    </form>
+    <form class="ramka" id="delete_hulajnoga" onsubmit="delete_hulajnoga(event)">
+        <h3>Usuń hulajnogę - zmiana statusu</h3>
+        <input type="number" class="form-control" id="delete_hulajnoga_id" placeholder="id hulajnogi" required="true">
+        <button type="submit"  class="btn btn-primary">Usuń</button>
+    </form>
+
+    <div class = ramka>
+        <h3>Dodaj nowego pracownika</h3>
+        <form id="new_pracownik" onsubmit="registration_handler(event)">
+            <label for="imie">Imię:</label><br>
+            <input type="text" class="form-control" id="pracownik_imie" name="imie" required><br>
+            <label for="nazwisko">Nazwisko:</label><br>
+            <input type="text" class="form-control" id="pracownik_nazwisko" name="nazwisko" required><br>
+            <label for="mail">Email:</label><br>
+            <input type="text" class="form-control" id="pracownik_email" name="mail" required><br>
+            <label for="haslo">Hasło:</label><br>
+            <input type="password" class="form-control" id="pracownik_haslo" name="haslo" required>
+            <br>
+            <button id="add_klient_btn" class="btn btn-primary">Wyślij</button>
+        </form>
+    </div>
+    
+</body>
+</html>

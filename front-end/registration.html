@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Registration</title>
+</head>
+<body>
+    <h1>Nie masz jeszcze konta?</h1>
+    <div class="center_form">
+        <h2>Zarejestruj się!</h2>
+        <form onsubmit="registration_handler(event)">
+            <label for="imie">Imię:</label><br>
+            <input type="text" class="form-control" id="klient_imie" name="imie" required><br>
+            <label for="nazwisko">Nazwisko:</label><br>
+            <input type="text" class="form-control" id="klient_nazwisko" name="nazwisko" required><br>
+            <label for="mail">Email:</label><br>
+            <input type="email" class="form-control" id="klient_email" name="mail" required><br>
+            <label for="haslo">Hasło:</label><br>
+            <input type="password" class="form-control" id="klient_haslo" name="haslo" required>
+            <br>
+            <button id="add_klient_btn" class="btn btn-primary">Wyślij</button>
+        </form>
+        
+    </div>
+
+    <script src="registration.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+    <title>Wypozyczalnia</title>
+</head>
+<body>
+    <h1>Witaj w wypozyczalni hulajnóg!</h1>
+    <div class="center_form">
+        <h2>Zaloguj się!</h2>
+        <form onsubmit="login_handler(event)">
+            <label for="mail">Email:</label><br>
+            <input type="text" id="klient_email" class="form-control" name="mail"  placeholder="wpisz adres email" required="true"><br>
+            <label for="haslo">Hasło:</label><br>
+            <input type="password" id="klient_haslo" class="form-control" name="haslo"  placeholder="wpisz haslo" required="true"><br>
+            <button type="submit" class="btn btn-primary" >Zaloguj</button><br><br>
+        </form>
+        <br>
+        <a href="registration.html">Rejestracja</a><br>
+        <a href="login_worker.html">Logowanie dla pracownika</a>
+    </div>
+</body>
+</html>

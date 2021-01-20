@@ -1,0 +1,53 @@
+body{
+    margin: 20px;
+}
+
+.ramka{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin:20px;
+}
+
+.zmiana_hasla{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom:20px;
+}
+
+.form-control{
+    margin-bottom: 10px;
+}
+
+h3{
+    margin-top: 0px;
+}
+
+#lokalizacja{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin:20px
+}
+
+.table-striped{
+    width:50%;
+    text-align:center;
+}
+
+th{
+    text-align: center;
+}
+
+.add_margin{
+    margin:20px;
+}
+
+#dane_wylogowanie{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding:10px
+}

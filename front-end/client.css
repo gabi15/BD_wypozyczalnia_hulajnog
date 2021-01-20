@@ -1,0 +1,61 @@
+.table-striped{
+    width:50%;
+    text-align:center;
+}
+
+th{
+    text-align: center;
+}
+.table{
+    width:50%;
+    text-align:center;
+}
+
+h2{
+    margin-top: 0px;
+}
+
+body{
+    margin:20px;
+}
+
+.dane_klienta{
+    position: relative;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin:20px;
+}
+.doladowanie{
+    position: absolute;
+    right:10px;
+    top:20px;
+    width:50%;
+}
+
+.form-control{
+    margin-bottom: 5px;
+}
+
+h1{
+    text-align: center;
+}
+
+.ramka{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin:20px;
+
+}
+#lokalizacja{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin:20px;
+}
+
+#hulajnogi_div{
+    padding: 20px;
+}
+
