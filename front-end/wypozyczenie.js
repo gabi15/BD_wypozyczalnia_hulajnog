@@ -67,24 +67,15 @@ async function handleZakonczJazde() {
                 method: 'post',
                 body: JSON.stringify({klient_id:klient_id, koniec_czasu:datetime})
             });
-
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-async function handleSumujKoszty(){
-    try {
-        klient_id = sessionStorage.getItem('userID');
-        const response = await fetch(url + '/koszt_jazdy/'+klient_id)
-        const koszt = await response.json();
+        const response2 = await fetch(url + '/koszt_jazdy/'+klient_id)
+        const koszt = await response2.json();
         console.log(koszt);
         let koszt_div = document.querySelector("body");
-        dane = '<h1>Jazda zakończona!<h1> <h3><b>Koszt jazdy:</b> ' + koszt[0]["sumuj"] +'</h3>'
+        dane = '<h1>Jazda zakończona!<h1> <h3><b>Koszt jazdy:</b> ' + koszt[0]["sumujkoszty_rozladujhulajnoge"] +'</h3>'
         dane += '<a href="client.html">Wróć do swojego konta</a>' ;
         koszt_div.innerHTML = dane;
+
     } catch (error) {
         console.log(error);
     }
-
 }

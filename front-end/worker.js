@@ -220,13 +220,13 @@ async function delete_klient(event){
     const id = document.querySelector('#delete_klient_id').value;
     console.log(id);
     try {
-        const response = await fetch(url + '/delete_klient/'+id,
+        const response = await fetch(url + '/delete_klient',
             {
+                method: 'delete',
                 headers: {
-                    Accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
-                method: 'delete'
+                body: JSON.stringify({klient_id:id})
             });
             if(response.status === 409) {
                 alert("taki klient nie istnieje")

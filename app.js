@@ -307,8 +307,8 @@ const deleteHulajnoga = (request, response) =>{
 }
 
 const deleteKlient = (request, response) =>{
-  //const {klient_id} = request.body;
-  const klient_id = parseInt(request.params.klient_id);
+  const {klient_id} = request.body;
+  //const klient_id = parseInt(request.params.klient_id);
   console.log(klient_id);
   pool.query('DELETE FROM klienci WHERE klient_id=$1;',[klient_id],(error, results)=>{
     if(error){
@@ -406,7 +406,7 @@ app.route('/worker_registration').post(addWorker);
 app.route('/add_hulajnoga').post(addHulajnoga)
 app.route('/add_serwis').post(addSerwis);
 app.route('/delete_hulajnoga').post(deleteHulajnoga)
-app.route('/delete_klient/:klient_id').delete(deleteKlient)
+app.route('/delete_klient').delete(deleteKlient)
 app.route('/get_klienci').get(getKlienci)
 app.route('/update_haslo_worker').post(updateHasloWorker)
 app.route('/get_raport_hulajnogi').get(raportHulajnogi)
