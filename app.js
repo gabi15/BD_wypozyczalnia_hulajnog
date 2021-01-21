@@ -8,8 +8,7 @@ const app = express()
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
-app.use(cors())
-app.options('*', cors())
+app.use(cors({ origin: true }))
 
 
 const addClient = (request, response) => {
