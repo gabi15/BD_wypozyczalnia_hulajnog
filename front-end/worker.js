@@ -222,9 +222,8 @@ async function delete_klient(event){
     try {
         const response = await fetch(url + '/delete_klient',
             {
-                method: 'post',
+                method: 'delete',
                 headers: {
-                    Accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({klient_id:id})

@@ -405,7 +405,7 @@ app.route('/ladowanie_hulajnogi').post(handleLadowanie)
 app.route('/worker_registration').post(addWorker);
 app.route('/add_hulajnoga').post(addHulajnoga)
 app.route('/add_serwis').post(addSerwis);
-app.route('/delete_hulajnoga').post(deleteHulajnoga)
+app.route('/delete_hulajnoga').delete(deleteHulajnoga)
 app.route('/delete_klient').post(deleteKlient)
 app.route('/get_klienci').get(getKlienci)
 app.route('/update_haslo_worker').post(updateHasloWorker)
