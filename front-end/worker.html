@@ -38,9 +38,9 @@
     <form class="ramka" onsubmit="add_serwis(event)" id="add_serwis"> 
         <h3>Serwisuj hulajnogę</h3>
         <label for="nazwa">Nazwa serwisu</label>
-        <input type=text class="form-control" id="nazwa" placeholder="wpisz nazwę serwisu" required="true">
+        <input type=text class="form-control" id="nazwa" placeholder="wpisz nazwę serwisu" maxlength="100" required="true">
         <label for="koszt">Koszt serwisu </label>
-        <input type='number' class="form-control" id = "koszt" step='0.01' value='0.00' placeholder='0.00' required="true">
+        <input type='number' class="form-control" id = "koszt" step='0.01' value='0.00' min = "1" max="10000" placeholder='0.00' required="true">
         <label for="hulajnoga_id">id hulajnogi </label>
         <input type='number' class="form-control" id = "hulajnoga_id" required="true">
         <button type="submit"  class="btn btn-primary">Wyślij</button>
@@ -68,11 +68,11 @@
         <h3>Dodaj nowego pracownika</h3>
         <form id="new_pracownik" onsubmit="registration_handler(event)">
             <label for="imie">Imię:</label><br>
-            <input type="text" class="form-control" id="pracownik_imie" name="imie" required><br>
+            <input type="text" class="form-control" id="pracownik_imie" maxlength="40" name="imie" required><br>
             <label for="nazwisko">Nazwisko:</label><br>
-            <input type="text" class="form-control" id="pracownik_nazwisko" name="nazwisko" required><br>
+            <input type="text" class="form-control" id="pracownik_nazwisko" maxlength="40" name="nazwisko" required><br>
             <label for="mail">Email:</label><br>
-            <input type="text" class="form-control" id="pracownik_email" name="mail" required><br>
+            <input type="text" class="form-control" id="pracownik_email"maxlength="40" name="mail" required><br>
             <label for="haslo">Hasło:</label><br>
             <input type="password" class="form-control" id="pracownik_haslo" name="haslo" required>
             <br>

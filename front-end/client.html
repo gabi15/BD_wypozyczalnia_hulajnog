@@ -17,7 +17,7 @@
         <div class="doladowanie">
             <form id="doladuj">
                 <h4>Doładuj swoje konto wybraną kwotą</h4>
-                <input type='number' class="form-control" id = "payment" step='0.01' value='0.00' placeholder='0.00'>
+                <input type='number' class="form-control" id = "payment" step='0.01' value='0.00' min = "1" max="1000" placeholder='0.00'>
                 <button type="submit" class="btn btn-primary" onclick="user_payment(event)">Doładuj</button>
             </form>
         </div>

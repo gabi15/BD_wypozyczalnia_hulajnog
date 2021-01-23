@@ -20,6 +20,7 @@ async function handlePostoj() {
             });
 
         document.getElementById("zakoncz_btn").disabled = true;
+        document.getElementById("wznow_btn").disabled = false;
 
     } catch (error) {
         console.log(error);
@@ -44,6 +45,7 @@ async function handleWznowienieJazdy() {
                 body: JSON.stringify({klient_id:sessionStorage.getItem('userID'), poczatek_czasu:datetime})
             });
         document.getElementById("zakoncz_btn").disabled = false;
+        document.getElementById("wznow_btn").disabled = true;
 
     } catch (error) {
         console.log(error);

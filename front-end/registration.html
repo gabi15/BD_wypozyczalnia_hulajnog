@@ -13,13 +13,13 @@
         <h2>Zarejestruj się!</h2>
         <form onsubmit="registration_handler(event)">
             <label for="imie">Imię:</label><br>
-            <input type="text" class="form-control" id="klient_imie" name="imie" required><br>
+            <input type="text" class="form-control" id="klient_imie" name="imie" maxlength="30" required><br>
             <label for="nazwisko">Nazwisko:</label><br>
-            <input type="text" class="form-control" id="klient_nazwisko" name="nazwisko" required><br>
+            <input type="text" class="form-control" id="klient_nazwisko" name="nazwisko" maxlength="40" required><br>
             <label for="mail">Email:</label><br>
-            <input type="email" class="form-control" id="klient_email" name="mail" required><br>
+            <input type="email" class="form-control" id="klient_email" name="mail" maxlength="40" required><br>
             <label for="haslo">Hasło:</label><br>
-            <input type="password" class="form-control" id="klient_haslo" name="haslo" required>
+            <input type="password" class="form-control" id="klient_haslo" name="haslo" maxlength="40" required>
             <br>
             <button id="add_klient_btn" class="btn btn-primary">Wyślij</button>
         </form>

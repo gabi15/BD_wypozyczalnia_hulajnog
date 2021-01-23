@@ -22,7 +22,6 @@ async function user_info_handler() {
             dane += '<h4><b>Email:</b> '+ client[0].email + '</h4>';
             dane+= '<h4><b>Dostępne środki: </b>' + client[0].dostepne_srodki + '</h4>';
             content.innerHTML =dane;
-            console.log(client[0]);
         }
     } catch (error) {
         console.log(error)
@@ -34,23 +33,29 @@ document.addEventListener('DOMContentLoaded', user_info_handler());
 async function user_payment(event) {
     event.preventDefault();
     const payment = document.querySelector('#payment').value;
-    try {
-        const response = await fetch(url + '/customer_payment',
-            {
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                method: 'post',
-                body: JSON.stringify({ kwota : payment, klient_id: sessionStorage.getItem('userID')})
-            });
-        const client = await response.json();
-        alert("doładowanie powiodło się")
-        user_info_handler()
-
-    } catch (error) {
-        console.log(error)
+    if(payment>=1 && payment<=1000){
+        try {
+            const response = await fetch(url + '/customer_payment',
+                {
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    method: 'post',
+                    body: JSON.stringify({ kwota : payment, klient_id: sessionStorage.getItem('userID')})
+                });
+            const client = await response.json();
+            alert("doładowanie powiodło się")
+            user_info_handler()
+    
+        } catch (error) {
+            console.log(error)
+        }
     }
+    else{
+        alert("kwota doładowania musi być w przedziale od 1 do 1000")
+    }
+
 }
 
 async function user_location(event) {
@@ -90,7 +95,6 @@ async function get_hulajnogi() {
         const response = await fetch(url + '/get_hulajnogi/'+klient_id)
         const hulajnoga = await response.json();
         let kod = "";
-        console.log(hulajnoga);
         kod+='<table class=" table table-striped"><tr><th>id</th><th>dlugosc geo</th><th>szerokosc geo</th><th>odleglosc</th><th>jedź</th><th>rezerwuj</th></tr><tbody>'
         hulajnoga.forEach(obj => {
             kod+=`<tr id=tr${obj["thulajnoga_id"]}>`;
@@ -113,7 +117,6 @@ async function get_hulajnogi() {
 
 async function handleJazda(hulajnoga_id) {
     try {
-        console.log(sessionStorage.getItem('userID'))
         var currentdate = new Date(); 
         var datetime = currentdate.getFullYear() + "-"+ (currentdate.getMonth()+1) +"-" +currentdate.getDate() + " "
                 + currentdate.getHours() + ":"  
@@ -132,7 +135,6 @@ async function handleJazda(hulajnoga_id) {
             alert("Doładuj konto!")
         } 
         else {
-            console.log("here")
             window.location.href = "wypozyczenie.html";
         }   
 
@@ -144,7 +146,6 @@ async function handleJazda(hulajnoga_id) {
 async function handleRezerwacja(hulajnoga_id) {
     try {
         let klient_id = sessionStorage.getItem('userID');
-        console.log(hulajnoga_id);
         const response = await fetch(url + '/new_rezerwacja',
             {
                 headers: {
@@ -185,7 +186,6 @@ async function handleOdrezerwuj(hulajnoga_id) {
     }
     var elems = document.getElementsByClassName("cc");
     for(var i = 0; i < elems.length; i++) {
-        console.log(elems)
         elems[i].disabled = false;
     }
     let rezerewacja = document.getElementById("rezerwacja");

@@ -20,7 +20,6 @@ async function login_handler(event) {
         const client = await response.json();
         if(client.length === 1){
             console.log("dobre dane")
-            console.log(client)
             sessionStorage.setItem('userID', client[0].pracownik_id);
             sessionStorage.setItem('isCustomer', false);
             sessionStorage.setItem('isWorker', true);

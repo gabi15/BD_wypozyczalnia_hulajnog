@@ -308,8 +308,6 @@ const deleteHulajnoga = (request, response) =>{
 
 const deleteKlient = (request, response) =>{
   const {klient_id} = request.body;
-  //const klient_id = parseInt(request.params.klient_id);
-  console.log(klient_id);
   pool.query('DELETE FROM klienci WHERE klient_id=$1;',[klient_id],(error, results)=>{
     if(error){
       console.log(error);
@@ -324,6 +322,7 @@ const deleteKlient = (request, response) =>{
 
   })
 }
+
 
 const getKlienci = (request, response)=>{
   pool.query('SELECT klient_id, imie, nazwisko, email, dostepne_srodki from klienci ORDER BY nazwisko', (error, results) =>

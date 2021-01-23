@@ -143,27 +143,34 @@ async function add_serwis(event) {
     const koszt = document.querySelector('#koszt').value;
     const id_hulajnogi = document.querySelector('#hulajnoga_id').value;
     const id_pracownika = sessionStorage.getItem('userID');
-    try {
-        const response = await fetch(url + '/add_serwis',
-            {
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                method: 'post',
-                body: JSON.stringify({ nazwa:nazwa, koszt:koszt, data:data, id_hulajnogi:id_hulajnogi, id_pracownika:id_pracownika})
-            });
-        if(response.status === 409) {
-            alert("podana hulajnoga nie istnieje!")
-        } 
-        else {
-            alert("Serwis został dodany");
-            document.getElementById("add_serwis").reset();
+    if(koszt>=1 && koszt<=10000)
+    {
+        try {
+            const response = await fetch(url + '/add_serwis',
+                {
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    method: 'post',
+                    body: JSON.stringify({ nazwa:nazwa, koszt:koszt, data:data, id_hulajnogi:id_hulajnogi, id_pracownika:id_pracownika})
+                });
+            if(response.status === 409) {
+                alert("podana hulajnoga nie istnieje!")
+            } 
+            else {
+                alert("Serwis został dodany");
+                document.getElementById("add_serwis").reset();
+            }
+    
+        } catch (error) {
+            console.log(error);
         }
-
-    } catch (error) {
-        console.log(error);
     }
+    else{
+        alert("Kwota musi być w przedziale od 1 do 10000")
+    }
+
 
 }
 
