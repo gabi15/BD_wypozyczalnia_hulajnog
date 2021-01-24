@@ -26,6 +26,7 @@ CREATE TABLE transakcje
     klient_id         integer                 NOT NULL
         CONSTRAINT transakcje_klienci_klient_id_fk
             REFERENCES klienci
+            ON DELETE CASCADE
 );
 
 CREATE TABLE cennik
@@ -92,7 +93,8 @@ CREATE TABLE wypozyczenie
             PRIMARY KEY,
     klient_id       integer   NOT NULL
         CONSTRAINT wypozyczenie_klienci_klient_id_fk
-            REFERENCES klienci,
+            REFERENCES klienci
+            ON DELETE CASCADE,
     hulajnoga_id    integer   NOT NULL
         CONSTRAINT wypozyczenie_hulajnogi_hulajnoga_id_fk
             REFERENCES hulajnogi,
@@ -107,7 +109,8 @@ CREATE TABLE czas
             PRIMARY KEY,
     wypozyczenie_id integer   NOT NULL
         CONSTRAINT czas_wypozyczenie_wypozyczenie_id_fk
-            REFERENCES wypozyczenie,
+            REFERENCES wypozyczenie
+            ON DELETE CASCADE,
     czas_start      timestamp NOT NULL,
     czas_stop       timestamp,
     usluga_id       integer   NOT NULL
